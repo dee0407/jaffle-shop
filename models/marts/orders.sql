@@ -3,6 +3,7 @@ with
 orders as (
 
     select * from {{ ref('stg_orders') }}
+    where order_status != 'cancelled'
 
 ),
 
