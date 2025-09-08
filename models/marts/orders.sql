@@ -50,7 +50,13 @@ compute_booleans as (
         order_items_summary.count_drink_items,
         order_items_summary.count_order_items,
         order_items_summary.count_food_items > 0 as is_food_order,
-        order_items_summary.count_drink_items > 0 as is_drink_order
+        order_items_summary.count_drink_items > 0 as is_drink_order,
+
+        -- New column to flag holiday orders
+        case
+            when date_trunc('month', ordered_at) = '2023-12-01' then true
+            else false
+        end as is_holiday_order
 
     from orders
 
