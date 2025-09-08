@@ -28,10 +28,6 @@ models:
         description: A boolean indicating if this order included any food items.
       - name: is_drink_order
         description: A boolean indicating if this order included any drink items.
-      - name: is_holiday_order                   # <-- Add here
-        description: Boolean flag indicating if the order was placed during the holiday month (December 2023).
-        data_tests:
-          - not_null
 
 unit_tests:
   - name: test_order_items_compute_to_bools_correctly
